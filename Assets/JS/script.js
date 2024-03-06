@@ -2,26 +2,42 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
-let addAnother = true;
+const collectEmployees = function() {
+  let addAnother = true;
+  employeesArray = []
 
-while (addAnother) {
-// const collectEmployees = function() {
-  let fName = window.prompt('Please enter your first name', 'First Name');
-  let lName = window.prompt('Please enter your last name', 'Last Name');
-  let salary = window.prompt('Please enter your salary', '123456789');
-  if (isNaN(salary)) {
-    alert('Please enter a valid salary');
+  while (addAnother) {
+    let fName = window.prompt('Please enter your first name', 'First Name');
+      if (!fName) {
+        return;
+      }
+     
+    let lName = window.prompt('Please enter your last name', 'Last Name');
+      if (!lName) {
+        return;
+      }
+
+    let salary = window.prompt('Please enter your salary', '123456789');
+      if (!salary) {
+        return;
+      }
+      else if (isNaN(salary)) {
+        alert('Please enter a valid salary');
+      }
+      
+    addAnother = window.confirm('Would you like to add another employee?')
   }
-  else {
-    employeesArray.firstName = fName
-    employeesArray.lastName = lName
-    employeesArray.salaryNumber = salary
-    confirm('Would you like to add another employee?')
+
+  const employeeData = {
+    firstName: fName,
+    lastName: lName,
+    empSalary: salary
   }
-  addAnother = confirm
+
+  employeesArray.push(employeeData)
+  return employeesArray
 }
 
-// }
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
