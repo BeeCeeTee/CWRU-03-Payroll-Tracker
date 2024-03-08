@@ -2,45 +2,58 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
+let employeesArray = [];
+
 const collectEmployees = function() {
   let addAnother = true;
-  employeesArray = []
 
   while (addAnother) {
     let fName = window.prompt('Please enter your first name', 'First Name');
       if (!fName) {
-        return;
+        alert('Please enter your first name')
       }
      
     let lName = window.prompt('Please enter your last name', 'Last Name');
       if (!lName) {
-        return;
+        alert('Please enter your last name')
       }
 
     let salary = window.prompt('Please enter your salary', '123456789');
       if (!salary) {
-        return;
       }
       else if (isNaN(salary)) {
         alert('Please enter a valid salary');
       }
-      
+    
     addAnother = window.confirm('Would you like to add another employee?')
+    const employeeData = {
+      firstName: fName,
+      lastName: lName,
+      salary: salary
+    }
+  
+    employeesArray.push(employeeData)
   }
-
-  const employeeData = {
-    firstName: fName,
-    lastName: lName,
-    empSalary: salary
-  }
-
-  employeesArray.push(employeeData)
+  console.log(employeesArray)
   return employeesArray
 }
 
 // Display the average salary
-const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+let salaryNumbers = []
+
+const displayAverageSalary = function(employeesArray) { 
+  let length = employeesArray.length;
+  for (let i = 0; i < length; i++) {
+    salaryNumbers.push(parseInt(employeesArray[i].salary));
+  }
+  console.log(salaryNumbers);
+  // let sum = 0;
+  // for(let i = 0; i < isNumber.length; i++) {
+  //   sum += isNumber[i];
+  // }
+  // const average = sum / employeesArray.length;
+  // const employeeNumber = employeesArray.length;
+  // console.log(`The average salary between our ${employeeNumber} employees is $${average}. `)
 }
 
 // Select a random employee
