@@ -11,18 +11,23 @@ const collectEmployees = function() {
     let fName = window.prompt('Please enter your first name', 'First Name');
       if (!fName) {
         alert('Please enter your first name')
+        fName = window.prompt('Please enter your first name', 'First Name');
       }
      
     let lName = window.prompt('Please enter your last name', 'Last Name');
       if (!lName) {
         alert('Please enter your last name')
+        lName = window.prompt('Please enter your last name', 'Last Name');
       }
 
-    let salary = window.prompt('Please enter your salary', '123456789');
+    let salary = window.prompt('Please enter your salary (without currency symbol, commas or periods, as shown below)', '123456789');
       if (!salary) {
+        alert('Please enter a valid salary (a number without any punctuation symbols)');
+        salary = window.prompt('Please enter your salary (a number without any punctuation)', '123456789');
       }
       else if (isNaN(salary)) {
-        alert('Please enter a valid salary');
+        alert('Please enter a valid salary (a number without any punctuation symbols)');
+        salary = window.prompt('Please enter your salary (a number without any punctuation)', '123456789');
       }
     
     addAnother = window.confirm('Would you like to add another employee?')
@@ -34,7 +39,6 @@ const collectEmployees = function() {
   
     employeesArray.push(employeeData)
   }
-  console.log(employeesArray)
   return employeesArray
 }
 
@@ -46,19 +50,23 @@ const displayAverageSalary = function(employeesArray) {
   for (let i = 0; i < length; i++) {
     salaryNumbers.push(parseInt(employeesArray[i].salary));
   }
-  console.log(salaryNumbers);
-  // let sum = 0;
-  // for(let i = 0; i < isNumber.length; i++) {
-  //   sum += isNumber[i];
-  // }
-  // const average = sum / employeesArray.length;
-  // const employeeNumber = employeesArray.length;
-  // console.log(`The average salary between our ${employeeNumber} employees is $${average}. `)
+
+  let sum = 0;
+  for(let i = 0; i < salaryNumbers.length; i++) {
+    sum += salaryNumbers[i];
+  }
+  
+  const average = sum / salaryNumbers.length;
+  const employeeNumber = employeesArray.length;
+  console.log(`The average salary between our ${employeeNumber} employees is $${average}. `)
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+  const randomEmployee = employeesArray[(Math.floor(Math.random()*employeesArray.length))];
+  rfName = randomEmployee.firstName
+  rlName = randomEmployee.lastName
+  console.log(`Congratulations ${rfName} ${rlName}, you were selected as this month's winner!!`);
 }
 
 /*
