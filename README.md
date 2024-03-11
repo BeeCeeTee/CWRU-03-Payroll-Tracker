@@ -1,5 +1,8 @@
 # Payroll Tracker
 
+![Payroll 1](https://github.com/BeeCeeTee/CWRU-03-Payroll-Tracker/assets/117789057/7694100d-30d1-48f8-88af-7d4851aa49d3)
+
+![Payroll 2](https://github.com/BeeCeeTee/CWRU-03-Payroll-Tracker/assets/117789057/4b254ba9-eb64-4df0-895f-4b7b8951a1ad)
 
 
 ## I. Description
@@ -7,6 +10,10 @@ The purpose of this project was to practice working with JavaScript by filling i
 
 ## II. Usage
 To use, simply click the link below or enter the following URL into the address bar:
+
+![Payroll URL](https://github.com/BeeCeeTee/CWRU-03-Payroll-Tracker/assets/117789057/e72a8a1b-1c64-4469-8500-18e1799f32e8)
+
+https://beeceetee.github.io/CWRU-03-Payroll-Tracker/
 
 ## III. Credits
 This project was completed by Brendan Trepal using only the starter code provided via Bootcamp Spot.
